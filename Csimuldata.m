@@ -1,4 +1,4 @@
-function [C, weights] = Csimuldata()
+function [C, weights] = Csimuldata(N)
 
 % Calibration shapes
 kappa = [0; 0.5; 1.6; 2; 2.5; 3.2; 4]; % [m^-1]
@@ -8,8 +8,8 @@ alpha = [alpha0, alpha0 + 90]; % [deg]
 % Wavelength shifts
 for i = 1:length(kappa)
 
-    wvl0 = simuldata(kappa(i)*ones(4,1), alpha(1)*ones(4,1));
-    wvl90 = simuldata(kappa(i)*ones(4,1), alpha(2)*ones(4,1));
+    wvl0 = simuldata(kappa(i)*ones(N,1), alpha(1)*ones(N,1));
+    wvl90 = simuldata(kappa(i)*ones(N,1), alpha(2)*ones(N,1));
 
     % Temperature compensation
     wvl0_Tcomp(i,:,:) = Tcomp(wvl0);

@@ -1,6 +1,6 @@
 function [wvl_shift] = simuldata(k, alpha)
 
-% Distance to central axis
+% Cross-sectional dimensions
 tet12 = 120; % [deg]
 tet23 = 120; % [deg]
 d = 70E-6; % [m]

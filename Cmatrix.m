@@ -30,7 +30,7 @@ weights = weights/sum(weights); % Normalize so sum = 1
 
 % Weighted shape
 for j = 1:size(k_est,3)
-    k_weight(:,:,j) = weights(j)*k_est(:,:,i);
+    k_weight(:,:,j) = weights(j)*k_est(:,:,j);
 end
 k_weight = sum(k_weight,3);
 

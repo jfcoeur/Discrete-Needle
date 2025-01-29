@@ -18,10 +18,7 @@ kappa_params = optimvars(4:end); % Intrinsic curvatures
 options = odeset('RelTol',1e-6,'AbsTol',1e-8);
 
 % Solve the Euler-Poincaré equations using an ODE solver
-[s_out, kappa_out] = ode45(@(s, k) EulerPoincareODE(s, k, kappa_params, B, L, insertion_case), s_vals, kappa0, options);
-
-% Reshape kappa_out to get curvature at each s
-kappa = kappa_out; % reshape(kappa_out', [3, N])'
+[~, kappa] = ode45(@(s, k) EulerPoincareODE(s, k, kappa_params, B, L, insertion_case), s_vals, kappa0, options);
 
 % Compute rotation matrices along the needle
 for i = 2:N
